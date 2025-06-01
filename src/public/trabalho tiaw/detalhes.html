@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalhes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <img src="logo.png" alt="Help Stress" />
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre ansiedade</a>
+      <a href="comunidade.html" class="active">Comunidade</a>
+    </div>
+  </nav>
+</header>
+
+<div class="detalhes-container" style="padding-top: 90px; max-width: 600px; margin: 80px auto 40px auto; text-align: center;">
+  <h1 id="titulo-detalhe"></h1>
+  <img id="imagem-detalhe" alt="" style="width: 120px; height: 120px; margin: 20px auto;" />
+  <p id="descricao-detalhe" style="font-size: 18px; color: #444;"></p>
+  <ul id="detalhe-dicas" style="list-style-type: disc; padding-left: 20px; text-align: left;"></ul>
+</div>
+
+<script>
+const cardsInfo = {
+  desacelera: {
+    titulo: "Desacelera",
+    imagem: "desacelera.jpg",
+    descricao: "Regule a ansiedade e o estresse em menos de 5 minutos.",
+    dicas: [
+      "Faça pausas conscientes durante o dia para respirar fundo e relaxar.",
+      "Pratique respiração profunda por 2 minutos para acalmar o corpo.",
+      "Desconecte-se das telas e observe o ambiente ao seu redor.",
+      "Ouça uma música relaxante ou sons da natureza.",
+      "Experimente alongamentos leves para aliviar a tensão muscular.",
+      "Se possível, feche os olhos e conte até 10 lentamente.",
+      "Lembre-se: desacelerar não é perder tempo, é cuidar de você."
+    ],
+    extra: "Essas técnicas rápidas ajudam a interromper o ciclo de ansiedade e estresse, trazendo mais clareza e bem-estar para o seu dia. Use sempre que sentir necessidade, mesmo em ambientes de trabalho ou estudo."
+  },
+  durmazen: {
+    titulo: "Durmazen",
+    imagem: "sono.jpg",
+    descricao: "Vença a insônia com nosso relaxamento guiado online.",
+    dicas: [
+      "Crie uma rotina de sono regular, indo dormir e acordando sempre nos mesmos horários.",
+      "Evite cafeína, bebidas energéticas e eletrônicos antes de dormir.",
+      "Faça um relaxamento guiado ou meditação leve antes de deitar.",
+      "Mantenha o quarto escuro, silencioso e confortável.",
+      "Se não conseguir dormir, levante e faça algo relaxante até sentir sono.",
+      "Evite pensar em problemas na hora de dormir, tente focar em pensamentos positivos.",
+      "Ouça áudios de relaxamento ou sons suaves para induzir o sono."
+    ],
+    extra: "Dormir bem é fundamental para o equilíbrio emocional. O relaxamento guiado pode ajudar a desacelerar a mente e preparar o corpo para um sono profundo e restaurador."
+  },
+  aquieagora: {
+    titulo: "Aqui e Agora",
+    imagem: "meditação.jpg",
+    descricao: "4 meditações para formar uma âncora de bem-estar no momento presente.",
+    dicas: [
+      "Pratique a respiração consciente: inspire e expire devagar, prestando atenção ao ar entrando e saindo.",
+      "Observe ao seu redor: repare em cinco coisas que pode ver, quatro que pode tocar, três que pode ouvir, duas que pode cheirar e uma que pode saborear.",
+      "Use frases como 'Estou aqui, agora' para se ancorar no presente.",
+      "Faça pequenas pausas durante o dia para se reconectar com o momento presente.",
+      "Experimente meditações guiadas focadas em mindfulness.",
+      "Aceite os pensamentos sem julgá-los, apenas observe e volte ao presente.",
+      "A prática diária fortalece sua capacidade de lidar com a ansiedade."
+    ],
+    extra: "Estar presente é um dos maiores aliados contra a ansiedade. Quanto mais você pratica, mais fácil fica trazer sua mente para o agora e sentir mais calma e controle."
+  }
+};
+
+
+const params = new URLSearchParams(window.location.search);
+const card = params.get('card');
+const info = cardsInfo[card] || cardsInfo['desacelera'];
+
+document.getElementById('imagem-detalhe').src = info.imagem;
+document.getElementById('imagem-detalhe').alt = info.titulo;
+document.getElementById('titulo-detalhe').textContent = info.titulo;
+document.getElementById('descricao-detalhe').textContent = info.descricao;
+
+const dicasUl = document.getElementById('detalhe-dicas');
+dicasUl.innerHTML = "";
+info.dicas.forEach(dica => {
+  const li = document.createElement('li');
+  li.textContent = dica;
+  dicasUl.appendChild(li);
+});
+
+
+if (info.extra) {
+  const extraP = document.createElement('p');
+  extraP.style.marginTop = "18px";
+  extraP.style.fontSize = "15px";
+  extraP.style.color = "#444";
+  extraP.textContent = info.extra;
+  dicasUl.parentNode.appendChild(extraP);
+}
+</script>
+<footer>
+    <div class="footer-conteudo">
+        <div class="footer-section">
+            <h3 class="pensando">Pensando Em Você</h3>
+            <p>Todas as informações do nosso site são formuladas a partir de bons profissionais adequados a todos os níveis de ansiedade.</p>
+        </div>
+        <div class="footer-section">
+            <h3 class="redes">Confira nossas redes sociais</h3>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy;2025 Help Stress. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>
