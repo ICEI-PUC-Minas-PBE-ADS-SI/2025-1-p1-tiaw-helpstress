@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - HelpStress</title>
+    <link rel="stylesheet" href="/assets/css/cadastro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="/assets/img/helpStressLogo.jpeg" alt="HelpStress">
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="sobre.html">Sobre ansiedade</a>
+                <a href="dicas.html">Dicas & Técnicas</a>
+                <a href="comunidade.html">Comunidade</a>
+                <a href="perfil.html" class="profile-icon"><i class="fas fa-user-circle"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cadastro-hero">
+            <div class="cadastro-card">
+                <img src="/assets/img/helpStressLogo.jpeg" alt="HelpStress Logo" class="cadastro-logo">
+                <h2>Cadastro</h2>
+                <p>Entre na nossa comunidade!</p>
+                <form class="cadastro-form">
+                    <input type="text" placeholder="Nome" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Senha" required>
+                    <input type="tel" placeholder="Celular">
+                    <button type="submit">Criar Conta</button>
+                </form>
+                <p class="login-link">Já tem uma conta? <a href="#">Faça login aqui.</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-conteudo">
+            <div class="footer-section">
+                <h3 class="pensando">Pensando Em Você</h3>
+                <p>Todas as informações do nosso site são formuladas a partir de bons profissionais adequados a todos os níveis de ansiedade.</p>
+            </div>
+            <div class="footer-section">
+                <h3 class="redes">Confira nossas redes sociais</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy;2025 Help Stress. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
