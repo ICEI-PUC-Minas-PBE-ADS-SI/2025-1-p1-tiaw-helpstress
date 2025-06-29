@@ -1,3 +1,5 @@
+import { baseUrl } from './auth.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const editarPerfilNomeUsuario = document.querySelector('.editar-perfil-nome');
     const editarPerfilCategoriaAtiva = document.querySelector('.editar-perfil-categoria');
@@ -15,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const profileBioTextarea = document.getElementById('profileBio');
     const profilePhoneInput = document.getElementById('profilePhone');
     const saveProfileChangesBtn = document.getElementById('saveProfileChangesBtn'); 
+    const passwordInput = document.getElementById('newPassword');
+    const oldPasswordInput = document.getElementById('oldPassword');
+    const savePasswordBtn = document.getElementById('savePasswordChangesBtn');
 
     function loadUserEditProfile() {
         const userData = localStorage.getItem('userData');
@@ -71,35 +76,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para carregar e exibir os posts do usuário
     async function loadUserPosts(userId) {
+        if (!recentPostsContainer) {
+            console.warn('Elemento recentPostsContainer não encontrado.');
+            return;
+        }
         try {
-            const response = await fetch(`/posts?userId=${userId}&_sort=id&_order=desc&_limit=4`); 
+            const response = await fetch(`${baseUrl}/posts?userId=${userId}&_sort=id&_order=desc&_limit=4`); 
             const userPosts = await response.json();
 
             recentPostsContainer.innerHTML = ''; 
 
             if (userPosts.length > 0) {
                 noPostsMessage.style.display = 'none';
+
+                const grid = document.createElement('div');
+                grid.className = 'posts-grid';
                 userPosts.forEach(post => {
                     const postElement = document.createElement('div');
-                    postElement.classList.add('post-item');
                     postElement.innerHTML = `
                         <img src="${post.img || '/assets/img/user.png'}" alt="${post.title}">
-                        <h4>${post.title}</h4>
+                        <div class="post-title">${post.title}</div>
                         <p>${post.content.substring(0, 50)}...</p>
                     `;
-                    recentPostsContainer.appendChild(postElement);
+                    grid.appendChild(postElement);
                 });
+                recentPostsContainer.appendChild(grid);
             } else {
                 noPostsMessage.style.display = 'block';
             }
         } catch (error) {
             console.error('Erro ao carregar posts do usuário:', error);
-            noPostsMessage.style.display = 'block';
-            noPostsMessage.textContent = 'Não foi possível carregar as postagens.';
+            if (noPostsMessage) {
+                noPostsMessage.style.display = 'block';
+                noPostsMessage.textContent = 'Não foi possível carregar as postagens.';
+            }
         }
     }
 
-    // Event Listeners para a aba Editar Perfil
     uploadProfilePictureInput.addEventListener('change', async (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -107,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             try {
-                // Faz upload para o Cloudinary
                 if (window.uploadToCloudinary) {
                     const imageUrl = await window.uploadToCloudinary(file);
                     profileAvatar.src = imageUrl;
@@ -137,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             let user = JSON.parse(userData);
+            const token = user.token;
             const newName = profileNameInput.value;
             const newBio = profileBioTextarea.value;
             const newPhone = profilePhoneInput.value;
@@ -153,10 +166,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const response = await fetch(`/usuarios/${user.id}`, {
+            const response = await fetch(`${baseUrl}/usuarios/${user.id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
+                    ...(token ? { 'Authorization': 'Bearer ' + token } : {})
                 },
                 body: JSON.stringify(updatedFields)
             });
@@ -184,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const user = JSON.parse(userData);
+            const token = user.token;
             const newEmail = accountEmailInput.value;
 
             if (newEmail === user.email) {
@@ -191,10 +206,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const response = await fetch(`/usuarios/${user.id}`, {
+            const response = await fetch(`${baseUrl}/usuarios/${user.id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
+                    ...(token ? { 'Authorization': 'Bearer ' + token } : {})
                 },
                 body: JSON.stringify({ email: newEmail })
             });
@@ -213,6 +229,59 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- ALTERAÇÃO DE SENHA ---
+    console.log('savePasswordBtn encontrado:', savePasswordBtn);
+    if (savePasswordBtn) {
+        console.log('Adicionando event listener ao botão de senha');
+        savePasswordBtn.addEventListener('click', async () => {
+            console.log('Botão de senha clicado');
+            const userData = localStorage.getItem('userData');
+            if (!userData) {
+                alert('Usuário não logado.');
+                return;
+            }
+            const user = JSON.parse(userData);
+            const token = user.token;
+            const newPassword = passwordInput.value;
+            const oldPassword = oldPasswordInput.value;
+            console.log('Dados da senha:', { newPassword: newPassword ? 'preenchida' : 'vazia', oldPassword: oldPassword ? 'preenchida' : 'vazia' });
+            
+            if (!oldPassword || !newPassword) {
+                alert('Preencha todos os campos de senha.');
+                return;
+            }
+            if (newPassword.length < 6) {
+                alert('A nova senha deve ter pelo menos 6 caracteres.');
+                return;
+            }
+            try {
+                console.log('Enviando requisição para alterar senha...');
+                const response = await fetch(`${baseUrl}/usuarios/${user.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...(token ? { 'Authorization': 'Bearer ' + token } : {})
+                    },
+                    body: JSON.stringify({ senha: newPassword, oldPassword })
+                });
+                console.log('Resposta da API:', response.status, response.statusText);
+                if (response.ok) {
+                    alert('Senha alterada com sucesso!');
+                    passwordInput.value = '';
+                    oldPasswordInput.value = '';
+                } else {
+                    const erro = await response.json();
+                    alert(erro.mensagem || 'Erro ao alterar a senha.');
+                }
+            } catch (error) {
+                console.error('Erro ao alterar senha:', error);
+                alert('Erro ao alterar a senha.');
+            }
+        });
+    } else {
+        console.error('Botão savePasswordChangesBtn não encontrado no DOM');
+    }
+
     categoriasMenu.forEach(item => {
         item.addEventListener('click', () => {
             setActiveCategory(item);
@@ -225,13 +294,13 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (categoriasMenu.length > 0) {
         setActiveCategory(categoriasMenu[0]);
     }
-
+    
     // Event Listener para logout
     const logoutButtonGeral = document.getElementById('logoutButtonGeral');
     if (logoutButtonGeral) {
         logoutButtonGeral.addEventListener('click', () => {
             localStorage.removeItem('userData');
-            window.location.href = 'index.html'; 
+            window.location.href = '/index.html'; 
         });
     }
 
@@ -239,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const deleteAccountMenuItem = document.getElementById('deleteAccountBtn');
     if (deleteAccountMenuItem) {
         deleteAccountMenuItem.addEventListener('click', () => {
-            window.location.href = 'confirmarExclusao.html';
+            window.location.href = '/confirmarExclusao.html';
         });
     }
 

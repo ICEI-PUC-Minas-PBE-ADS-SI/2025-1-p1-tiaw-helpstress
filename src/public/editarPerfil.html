@@ -17,7 +17,7 @@
             <div class="logo">
                 <img src="/assets/img/helpStressLogo.jpeg" alt="HelpStress">
             </div>
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Abrir menu">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links">
@@ -67,7 +67,10 @@
 
                         <div class="recent-posts-section">
                             <h3 class="section-title">Posts Recentes</h3>
-                            <div id="recentPostsContainer" class="posts-grid">
+                            <div class="carousel-container">
+                                <button class="carousel-arrow left" id="carouselPrev" type="button">&#8592;</button>
+                                <div class="carousel-track" id="carouselTrack"></div>
+                                <button class="carousel-arrow right" id="carouselNext" type="button">&#8594;</button>
                             </div>
                             <p id="noPostsMessage" class="no-posts-message" style="display: none;">Você ainda não possui postagens.</p>
                         </div>
@@ -124,10 +127,37 @@
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             });
         }
     </script>
     <script src="/assets/js/cloudinary-config.js"></script>
-    <script src="/assets/js/editarPerfil.js"></script>
+    <script type="module" src="/assets/js/editarPerfil.js"></script>
 </body>
 </html> 
