@@ -63,7 +63,8 @@ Esta seção apresenta os módulos e APIs utilizados na solução.
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foram realizados.
+* Backend - [render.com](https://helpstress-backend.onrender.com)
+* Frontend - [netlify.com](http://helpstress.netlify.app)
 
 > **Links úteis**:
 > - [Website com GitHub Pages](https://pages.github.com/)
