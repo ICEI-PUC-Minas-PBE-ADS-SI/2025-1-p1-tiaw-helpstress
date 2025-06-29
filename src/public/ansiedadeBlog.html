@@ -1,1 +1,698 @@
-<h1>Ola</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>O que é a ansiedade?</title>
+  <link rel="stylesheet" href="assets/css/dormir.css" />
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .botoes-proximos-passos-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .btn-popover-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .popover-ansiedade {
+      display: none;
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #e0f7fa;
+      color: #205080;
+      border-radius: 1.2rem;
+      padding: 1.5rem 2rem;
+      font-size: 1.08rem;
+      max-width: 420px;
+      min-width: 320px;
+      text-align: left;
+      box-shadow: 0 2px 8px rgba(32,178,170,0.10);
+      z-index: 10;
+      margin-top: 0.3rem;
+      animation: fadeIn 0.2s;
+    }
+    .popover-ansiedade.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    @media (max-width: 700px) {
+      .botoes-proximos-passos-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      .popover-ansiedade {
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 95vw;
+      }
+    }
+    .cards-tratamento {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 2.5rem 0 2.5rem 0;
+    }
+    .card-tratamento {
+      background: #f8f9fa;
+      border-radius: 1.3rem;
+      box-shadow: 0 2px 16px rgba(32,178,170,0.10);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      min-width: 240px;
+      max-width: 320px;
+      flex: 0 1 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      align-self: flex-start;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card-tratamento.largo {
+      max-width: 500px;
+      flex: 1 1 480px;
+    }
+    .card-tratamento:hover {
+      box-shadow: 0 6px 32px rgba(32,178,170,0.18);
+      transform: translateY(-4px) scale(1.03);
+    }
+    .card-tratamento h3 {
+      color: #20b2aa;
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      margin-top: 0;
+    }
+    .card-tratamento ul {
+      margin-left: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .card-tratamento li {
+      margin-bottom: 0.3rem;
+    }
+    @media (max-width: 900px) {
+      .cards-tratamento {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card-tratamento, .card-tratamento.largo {
+        max-width: 98vw;
+        width: 100%;
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="Help Stress" />
+      </div>
+      <button class="mobile-menu-btn" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre ansiedade</a>
+        <a href="comunidade.html">Comunidade</a>
+        <a href="dicasTecnicas.html" class="active">Dicas & Técnicas</a>
+      </div>
+    </nav>
+  </header>
+  <main class="artigo-container">
+    <div class="artigo-header">
+      <div class="artigo-titulo-ref">
+        <h1 class="artigo-titulo">O que é a ansiedade?</h1>
+        <p class="artigo-referencia">MIGUEL, E. C. et al. Transtornos de ansiedade: revisão do diagnóstico e tratamento. Revista Brasileira de Psiquiatria, São Paulo, v. 32, n. 3, p. 271-282, set. 2010. Disponível em: <a href="https://www.scielo.br/j/rbp/a/dz9nS7gtB9pZFY6rkh48CLt/?lang=pt" target="_blank">https://www.scielo.br/j/rbp/a/dz9nS7gtB9pZFY6rkh48CLt/?lang=pt</a>. Acesso em: 26 jun. 2025.</p>
+      </div>
+      <img src="assets/img/ans.jpg" alt="Ansiedade" class="artigo-img" />
+    </div>
+    <div id="artigo-texto">
+      <h2 class="artigo-mini-titulo">Introdução</h2>
+      <p>
+        A ansiedade é um <strong>sentimento de "vazio", apreensão, medo ou inquietação,</strong> sua natureza vem de um terror desagradável por acontecimentos antecipados. Enquanto o medo seria uma resposta sobre uma ameaça real ou percebida, a <strong>ansiedade se caracteriza por ser a expectativa de uma futura ameaça.</strong> Em sua maioria acompanhada por inquietações, tensão muscular, fadiga e problemas de concentração, a ansiedade chega a ser considerada um transtorno quando o indivíduo <strong>relata frequência de crises e casos,</strong> chegando a ser recomendado a busca por especialistas no assunto.
+      </p>
+      <p>
+        <strong>Apresentar inquietude em momentos de desconforto é normal,</strong> pesquisas apontam que apresentar informações para um grande público se tornou o medo mais comumente relatado na população em geral (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9158251/?utm_source=chatgpt.com#bibr17-0145445521994308" class="artigo-link" target="_blank">Dwyer & Davidson, 2012 ; Sawyer, 2016</a>). O indivíduo consegue diferenciar uma ansiedade normal para patológica <strong>avaliando a frequência e a duração de suas reações ansiosas, caso ela seja curta e esteja relacionada apenas ao estímulo momentâneo.</strong>
+      </p>
+      <h2 class="artigo-mini-titulo">Então... minha ansiedade é normal?</h2>
+      <p>
+        Possuir dúvidas quanto isso é algo que grande parte da sociedade possui. <strong>Afinal, sentir-se ansioso durante uma prova, uma apresentação, diante de uma autoridade é um sentimento extremamente humano que já fez ou faz parte da vida de todos.</strong> Acontece que essas preocupações e medos cotidianos fazem parte de uma <strong>reação natural humana,</strong> em nossa sociedade ocorre uma distinção implícita entre a ansiedade rotineira e o <strong>transtorno de ansiedade, que se caracteriza por sintomas intensos que são vistos com frequências, esse tipo de ansiedade patológica, muitas vezes, tem origem em uma ansiedade primária — como experiências de um início de um surto esquizofrênico ou o medo da separação dos pais por uma criança.</strong> Com o tempo, ela pode se tornar intensa, duradoura e persistente, mesmo quando o fator desencadeador original já não está mais presente.
+      </p>
+      <p style="margin-top: 2.5rem;">
+        Nossa equipe da Helpstress preparou um teste para te ajudar sobre os níveis da sua ansiedade. Mas é importante lembrar: <strong>nenhum teste online substitui um diagnóstico médico.</strong><br>
+        Se os sintomas estiverem afetando sua rotina ou seu bem-estar, <strong>não hesite em procurar um profissional de saúde mental.</strong> Cuidar de si é um gesto de coragem.
+      </p>
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <button id="abrir-teste-ansiedade" style="background: #2563EB; color: #fff; font-size: 1.15rem; padding: 0.9rem 2.2rem; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: background 0.2s;">Fazer teste de ansiedade</button>
+      </div>
+      <div id="caixa-teste-ansiedade" style="display: none; background: #f8f9fa; border-radius: 14px; max-width: 1200px; width: 95%; margin: 2.2rem auto 0 auto; padding: 2rem 1.5rem 1.5rem 1.5rem; box-shadow: 0 8px 32px rgba(37,99,235,0.10);">
+        <h2 style="color: #2563EB; font-size: 1.25rem; margin-bottom: 1.2rem;">Teste de Ansiedade</h2>
+        <div class="progress-bar-teste" id="progress-bar-teste-inicial">
+          <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+            <span class="progress-step active">1</span>
+            <span class="progress-step-text active">Teste</span>
+          </div>
+          <div class="progress-bar-line"></div>
+          <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+            <span class="progress-step">2</span>
+            <span class="progress-step-text">Resultados</span>
+          </div>
+        </div>
+        <div id="texto-inicial-teste">
+          <p style="color: #444;"><strong>Nos últimos 14 dias,</strong> com que frequência você se sentiu incomodado(a) pelos seguintes problemas?</p>
+          <p style="color: #444;">Por favor, preencha<strong> todos os campos.</strong> </p>
+        </div>
+        <form id="form-teste-ansiedade">
+          <div style="margin-bottom: 1.2rem;">
+            <label style="font-size: 1.08rem; color: #333; font-weight: 500; display: block; margin-bottom: 0.7rem; margin-top: 1.25rem;">1. Sentindo-se nervoso(a), ansioso(a) ou inquieto(a)</label>
+            <div class="teste-opcoes" id="opcoes-pergunta-1">
+              <button type="button" class="teste-opcao" data-value="0">Nem um pouco</button>
+              <button type="button" class="teste-opcao" data-value="1">Em alguns dias</button>
+              <button type="button" class="teste-opcao" data-value="2">Na maioria dos dias</button>
+              <button type="button" class="teste-opcao" data-value="3">Quase todos os dias</button>
+            </div>
+          </div>
+          <div style="margin-bottom: 1.2rem;">
+            <label style="font-size: 1.08rem; color: #333; font-weight: 500; display: block; margin-bottom: 0.7rem;">2. Não conseguir parar de se preocupar ou controlar a preocupação</label>
+            <div class="teste-opcoes" id="opcoes-pergunta-2">
+              <button type="button" class="teste-opcao" data-value="0">Nem um pouco</button>
+              <button type="button" class="teste-opcao" data-value="1">Em alguns dias</button>
+              <button type="button" class="teste-opcao" data-value="2">Na maioria dos dias</button>
+              <button type="button" class="teste-opcao" data-value="3">Quase todos os dias</button>
+            </div>
+          </div>
+          <div style="margin-bottom: 1.2rem;">
+            <label style="font-size: 1.08rem; color: #333; font-weight: 500; display: block; margin-bottom: 0.7rem;">3. Preocupar-se excessivamente com diversas questões</label>
+            <div class="teste-opcoes" id="opcoes-pergunta-3">
+              <button type="button" class="teste-opcao" data-value="0">Nem um pouco</button>
+              <button type="button" class="teste-opcao" data-value="1">Em alguns dias</button>
+              <button type="button" class="teste-opcao" data-value="2">Na maioria dos dias</button>
+              <button type="button" class="teste-opcao" data-value="3">Quase todos os dias</button>
+            </div>
+          </div>
+          <div style="margin-bottom: 1.2rem;">
+            <label style="font-size: 1.08rem; color: #333; font-weight: 500; display: block; margin-bottom: 0.7rem;">4. Dificuldade em relaxar</label>
+            <div class="teste-opcoes" id="opcoes-pergunta-4">
+              <button type="button" class="teste-opcao" data-value="0">Nem um pouco</button>
+              <button type="button" class="teste-opcao" data-value="1">Em alguns dias</button>
+              <button type="button" class="teste-opcao" data-value="2">Na maioria dos dias</button>
+              <button type="button" class="teste-opcao" data-value="3">Quase todos os dias</button>
+            </div>
+          </div>
+          <div style="margin-bottom: 1.2rem;">
+            <label style="font-size: 1.08rem; color: #333; font-weight: 500; display: block; margin-bottom: 0.7rem;">5. Estar tão agitado(a) que é difícil ficar parado(a)</label>
+            <div class="teste-opcoes" id="opcoes-pergunta-5">
+              <button type="button" class="teste-opcao" data-value="0">Nem um pouco</button>
+              <button type="button" class="teste-opcao" data-value="1">Em alguns dias</button>
+              <button type="button" class="teste-opcao" data-value="2">Na maioria dos dias</button>
+              <button type="button" class="teste-opcao" data-value="3">Quase todos os dias</button>
+            </div>
+          </div>
+          <div style="margin-bottom: 1.2rem;">
+            <label style="font-size: 1.08rem; color: #333; font-weight: 500; display: block; margin-bottom: 0.7rem;">6. Ficar facilmente irritado(a) ou aborrecido(a)</label>
+            <div class="teste-opcoes" id="opcoes-pergunta-6">
+              <button type="button" class="teste-opcao" data-value="0">Nem um pouco</button>
+              <button type="button" class="teste-opcao" data-value="1">Em alguns dias</button>
+              <button type="button" class="teste-opcao" data-value="2">Na maioria dos dias</button>
+              <button type="button" class="teste-opcao" data-value="3">Quase todos os dias</button>
+            </div>
+          </div>
+          <div style="margin-bottom: 1.2rem;">
+            <label style="font-size: 1.08rem; color: #333; font-weight: 500; display: block; margin-bottom: 0.7rem;">7. Sentir-se com medo, como se algo terrível pudesse acontecer</label>
+            <div class="teste-opcoes" id="opcoes-pergunta-7">
+              <button type="button" class="teste-opcao" data-value="0">Nem um pouco</button>
+              <button type="button" class="teste-opcao" data-value="1">Em alguns dias</button>
+              <button type="button" class="teste-opcao" data-value="2">Na maioria dos dias</button>
+              <button type="button" class="teste-opcao" data-value="3">Quase todos os dias</button>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: flex-end;">
+            <button type="button" class="btn-proximo-teste" id="btn-ver-resultados">Ver resultados <span class="seta"></span></button>
+          </div>
+        </form>
+        <div id="resultado-teste-ansiedade" style="display: none;">
+          <div class="progress-bar-teste" style="margin-bottom: 2.2rem;" id="progress-bar-teste-resultado">
+            <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+              <span class="progress-step">1</span>
+              <span class="progress-step-text">Teste</span>
+            </div>
+            <div class="progress-bar-line active"></div>
+            <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+              <span class="progress-step active">2</span>
+              <span class="progress-step-text active">Resultados</span>
+            </div>
+          </div>
+          <div style="background: #20b2aa0d; border-radius: 2.2rem; max-width: 600px; margin: 0 auto 2.5rem auto; padding: 2.5rem 2.2rem 2.2rem 2.2rem; box-shadow: 0 4px 24px rgba(33,150,243,0.10); text-align: center;">
+            <div id="categoria-ansiedade" style="background: #20b2aa; color: #fff; border-radius: 0 2.5rem 2.5rem 2.5rem; padding: 1.5rem 1.2rem 1.2rem 2.2rem; font-size: 2.1rem; font-weight: 700; margin-bottom: 1.7rem; text-align: left; position: relative; min-height: 80px; display: flex; flex-direction: column; justify-content: center;">
+              <span style="font-size: 1rem; font-weight: 400; opacity: 0.85; margin-bottom: 0.3rem; letter-spacing: 0.01em;">Seus Resultados — Teste de Ansiedade:</span>
+              <span id="categoria-ansiedade-texto" style="font-size: 2.1rem; font-weight: 700; line-height: 1.1;"></span>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.5rem; justify-content: center;">
+              <button class="btn-proximo-teste" style="background: #e0f7fa; color: #047dac; font-size: 1rem; font-weight: 600; box-shadow: none; border-radius: 2rem; padding: 0.7rem 1.5rem;">Sobre sua pontuação: <span id="score-teste">0 / 21</span></button>
+              <button class="btn-proximo-teste" id="btn-suas-respostas" style="background: #e0f7fa; color: #047dac; font-size: 1rem; font-weight: 600; box-shadow: none; border-radius: 2rem; padding: 0.7rem 1.5rem;">Suas respostas</button>
+              <button class="btn-proximo-teste" style="background: #e0f7fa; color: #047dac; font-size: 1rem; font-weight: 600; box-shadow: none; border-radius: 2rem; padding: 0.7rem 1.5rem;">Refazer teste</button>
+            </div>
+            <div id="texto-resultado-teste" style="color: #205080; font-size: 1.13rem; margin-bottom: 1.7rem;">Seu resultado será exibido aqui.</div>
+            <div id="respostas-teste-card" class="respostas-teste-card" style="display: none;"></div>
+          </div>
+          <div style="max-width: 600px; margin: 0 auto 2.5rem auto;">
+            <h3 style="color: #047dac; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.1rem;">Próximos passos</h3>
+            <div class="botoes-proximos-passos-container">
+              <div class="btn-popover-wrapper">
+                <button class="btn-proximo-teste" style="background: #20b2aa; color: #fff; font-size: 1rem; font-weight: 600; box-shadow: none; border-radius: 2rem; padding: 0.7rem 1.5rem;" id="btn-oque-ansiedade">O que é ansiedade?</button>
+                <div id="caixa-oque-ansiedade" class="popover-ansiedade">
+                  Para saber mais sobre sua ansiedade, continue lendo nosso artigo. No final, você encontrará todas as referências e fontes utilizadas, além de indicações de materiais e conteúdos que podem ajudar a esclarecer suas dúvidas.
+                </div>
+              </div>
+              <div class="btn-popover-wrapper">
+                <button class="btn-proximo-teste" style="background: #20b2aa; color: #fff; font-size: 1rem; font-weight: 600; box-shadow: none; border-radius: 2rem; padding: 0.7rem 1.5rem;" id="btn-como-ajuda">Como buscar ajuda?</button>
+                <div id="caixa-como-ajuda" class="popover-ansiedade">
+                  Você pode procurar um psicólogo (particular ou pelo SUS), ir ao <a href="https://www.google.com/maps/search/CAPS+perto+de+mim/" target="_blank" rel="noopener" style="color: #047dac; text-decoration: underline; font-weight: 500;">CAPS mais próximo</a> (Centro de Atenção Psicossocial) ou buscar atendimento em clínicas-escola de psicologia.<br><br>
+                  Se preferir algo imediato, acesse o <a href="https://www.cvv.org.br/" target="_blank" rel="noopener" style="color: #047dac; text-decoration: underline; font-weight: 500;">site do CVV</a> ou ligue <strong>188</strong> para apoio emocional.<br><br>
+                  Cuidar da sua saúde mental é importante — você não está sozinho.
+                </div>
+              </div>
+              <div class="btn-popover-wrapper">
+                <button class="btn-proximo-teste" style="background: #20b2aa; color: #fff; font-size: 1rem; font-weight: 600; box-shadow: none; border-radius: 2rem; padding: 0.7rem 1.5rem;" id="btn-dicas-ansiedade">Dicas para ansiedade</button>
+                <div id="caixa-dicas-ansiedade" class="popover-ansiedade">
+                  Se você busca maneiras eficazes de reduzir a ansiedade, descobrir técnicas funcionais e acessar outros artigos, visite nossa seção Dicas e Técnicas.
+                </div>
+              </div>
+            </div>
+            <div style="color: #444; font-size: 1.05rem;">Esses resultados não são um diagnóstico. Se você marcou sintomas moderados ou graves, considere procurar um profissional de saúde mental. Mesmo pontuações baixas podem indicar a necessidade de atenção futura.</div>
+          </div>
+        </div>
+        <script>
+          // Seleção visual das opções das perguntas
+          document.addEventListener('DOMContentLoaded', function() {
+            const opcoes1 = document.querySelectorAll('#opcoes-pergunta-1 .teste-opcao');
+            opcoes1.forEach(btn => {
+              btn.addEventListener('click', function() {
+                opcoes1.forEach(b => b.classList.remove('ativa'));
+                this.classList.add('ativa');
+                removerErro(1);
+              });
+            });
+            const opcoes2 = document.querySelectorAll('#opcoes-pergunta-2 .teste-opcao');
+            opcoes2.forEach(btn => {
+              btn.addEventListener('click', function() {
+                opcoes2.forEach(b => b.classList.remove('ativa'));
+                this.classList.add('ativa');
+                removerErro(2);
+              });
+            });
+            // Adicionar seleção para as perguntas 3 a 7
+            for (let i = 3; i <= 7; i++) {
+              const opcoes = document.querySelectorAll(`#opcoes-pergunta-${i} .teste-opcao`);
+              opcoes.forEach(btn => {
+                btn.addEventListener('click', function() {
+                  opcoes.forEach(b => b.classList.remove('ativa'));
+                  this.classList.add('ativa');
+                  removerErro(i);
+                });
+              });
+            }
+
+            // Variável global para armazenar respostas
+            window.respostasUsuario = [];
+            const btnVerResultados = document.getElementById('btn-ver-resultados');
+            if (btnVerResultados) {
+              btnVerResultados.addEventListener('click', function() {
+                let valido = true;
+                let score = 0;
+                for (let i = 1; i <= 7; i++) {
+                  const opcoes = document.querySelectorAll(`#opcoes-pergunta-${i} .teste-opcao`);
+                  const selecionada = Array.from(opcoes).find(btn => btn.classList.contains('ativa'));
+                  removerErro(i);
+                  if (!selecionada) {
+                    mostrarErro(i);
+                    valido = false;
+                  } else {
+                    score += parseInt(selecionada.getAttribute('data-value'));
+                    // Busca o label da pergunta corretamente
+                    let label = '';
+                    const parent = document.querySelector(`#opcoes-pergunta-${i}`)?.parentNode;
+                    if (parent) {
+                      const labelEl = parent.querySelector('label');
+                      if (labelEl) label = labelEl.innerText;
+                    }
+                    window.respostasUsuario.push({
+                      pergunta: label,
+                      resposta: selecionada ? selecionada.innerText : '',
+                      valor: selecionada ? selecionada.getAttribute('data-value') : ''
+                    });
+                  }
+                }
+                if (valido) {
+                  document.getElementById('form-teste-ansiedade').style.display = 'none';
+                  document.getElementById('resultado-teste-ansiedade').style.display = 'block';
+                  document.getElementById('progress-bar-teste-inicial').style.display = 'none';
+                  document.getElementById('texto-inicial-teste').style.display = 'none';
+                  // Atualizar barra de progresso
+                  document.querySelectorAll('#progress-bar-teste-resultado .progress-step').forEach((el, idx) => {
+                    if (idx === 1) el.classList.add('active');
+                  });
+                  document.querySelectorAll('#progress-bar-teste-resultado .progress-step-text').forEach((el, idx) => {
+                    if (idx === 1) el.classList.add('active');
+                  });
+                  // Exibir score
+                  document.getElementById('score-teste').textContent = score + ' / 21';
+                  // Categoria e texto
+                  let categoria = '';
+                  let texto = '';
+                  if (score <= 4) {
+                    categoria = 'Ansiedade mínima';
+                    texto = 'Seus resultados indicam que você tem nenhum ou poucos sinais de ansiedade.';
+                  } else if (score <= 9) {
+                    categoria = 'Ansiedade leve';
+                    texto = 'Seus resultados indicam sintomas leves de ansiedade. Fique atento(a) e monitore seus sintomas.';
+                  } else if (score <= 14) {
+                    categoria = 'Ansiedade moderada';
+                    texto = 'Seus resultados indicam sintomas moderados de ansiedade. Considere procurar um profissional de saúde mental.';
+                  } else {
+                    categoria = 'Ansiedade grave';
+                    texto = 'Seus resultados indicam sintomas graves de ansiedade. Procure um psicólogo, psiquiatra ou outro profissional de saúde mental.';
+                  }
+                  document.getElementById('categoria-ansiedade-texto').textContent = categoria;
+                  document.getElementById('texto-resultado-teste').textContent = texto;
+                }
+              });
+            }
+
+            // Exibir respostas ao clicar em 'Suas respostas'
+            const btnRespostas = document.getElementById('btn-suas-respostas');
+            const cardRespostas = document.getElementById('respostas-teste-card');
+            let respostasVisiveis = false;
+            if (btnRespostas && cardRespostas) {
+              btnRespostas.addEventListener('click', function() {
+                if (!respostasVisiveis) {
+                  let html = '<div class="respostas-teste-titulo">Suas Respostas</div><div class="respostas-teste-lista">';
+                  (window.respostasUsuario || []).forEach((r, idx) => {
+                    html += `<div class='resposta-teste-item'><span class='resposta-teste-label'>${r.pergunta}</span><span class='resposta-teste-valor'>${r.resposta} (${r.valor})</span></div>`;
+                  });
+                  html += '</div>';
+                  cardRespostas.innerHTML = html;
+                  cardRespostas.style.display = 'block';
+                  respostasVisiveis = true;
+                } else {
+                  cardRespostas.style.display = 'none';
+                  respostasVisiveis = false;
+                }
+              });
+            }
+
+            // Funcionalidade do botão Refazer teste
+            const btnRefazer = document.querySelector('#resultado-teste-ansiedade .btn-proximo-teste:nth-child(3)');
+            if (btnRefazer) {
+              btnRefazer.addEventListener('click', function() {
+                // Esconde resultados, mostra formulário, barra e texto iniciais
+                document.getElementById('resultado-teste-ansiedade').style.display = 'none';
+                document.getElementById('form-teste-ansiedade').style.display = 'block';
+                document.getElementById('progress-bar-teste-inicial').style.display = 'flex';
+                document.getElementById('texto-inicial-teste').style.display = 'block';
+                // Limpa seleções e erros
+                for (let i = 1; i <= 7; i++) {
+                  const opcoes = document.querySelectorAll(`#opcoes-pergunta-${i} .teste-opcao`);
+                  opcoes.forEach(btn => btn.classList.remove('ativa'));
+                  const divPergunta = document.querySelector(`#opcoes-pergunta-${i}`);
+                  if (divPergunta && divPergunta.nextElementSibling?.classList.contains('mensagem-erro-teste')) {
+                    divPergunta.nextElementSibling.remove();
+                  }
+                }
+              });
+            }
+
+            function mostrarErro(i) {
+              const divPergunta = document.querySelector(`#opcoes-pergunta-${i}`);
+              if (divPergunta && !divPergunta.nextElementSibling?.classList.contains('mensagem-erro-teste')) {
+                const erro = document.createElement('div');
+                erro.className = 'mensagem-erro-teste';
+                erro.innerHTML = '<strong>Erro:</strong> Este campo é obrigatório.';
+                divPergunta.parentNode.insertBefore(erro, divPergunta.nextSibling);
+              }
+            }
+            function removerErro(i) {
+              const divPergunta = document.querySelector(`#opcoes-pergunta-${i}`);
+              if (divPergunta && divPergunta.nextElementSibling?.classList.contains('mensagem-erro-teste')) {
+                divPergunta.nextElementSibling.remove();
+              }
+            }
+          });
+        </script>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const btnAbrir = document.getElementById('abrir-teste-ansiedade');
+          const caixa = document.getElementById('caixa-teste-ansiedade');
+          if (btnAbrir && caixa) {
+            btnAbrir.addEventListener('click', function() {
+              if (caixa.style.display === 'none' || caixa.style.display === '') {
+                caixa.style.display = 'block';
+                btnAbrir.textContent = 'Ocultar teste de ansiedade';
+              } else {
+                caixa.style.display = 'none';
+                btnAbrir.textContent = 'Fazer teste de ansiedade';
+              }
+            });
+          }
+        });
+      </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const btnOque = document.getElementById('btn-oque-ansiedade');
+          const caixaOque = document.getElementById('caixa-oque-ansiedade');
+          const btnDicas = document.getElementById('btn-dicas-ansiedade');
+          const caixaDicas = document.getElementById('caixa-dicas-ansiedade');
+          const btnAjuda = document.getElementById('btn-como-ajuda');
+          const caixaAjuda = document.getElementById('caixa-como-ajuda');
+          if (btnOque && caixaOque) {
+            btnOque.addEventListener('click', function(e) {
+              e.stopPropagation();
+              caixaOque.classList.toggle('active');
+              if (caixaDicas) caixaDicas.classList.remove('active');
+              if (caixaAjuda) caixaAjuda.classList.remove('active');
+            });
+          }
+          if (btnDicas && caixaDicas) {
+            btnDicas.addEventListener('click', function(e) {
+              e.stopPropagation();
+              caixaDicas.classList.toggle('active');
+              if (caixaOque) caixaOque.classList.remove('active');
+              if (caixaAjuda) caixaAjuda.classList.remove('active');
+            });
+          }
+          if (btnAjuda && caixaAjuda) {
+            btnAjuda.addEventListener('click', function(e) {
+              e.stopPropagation();
+              caixaAjuda.classList.toggle('active');
+              if (caixaOque) caixaOque.classList.remove('active');
+              if (caixaDicas) caixaDicas.classList.remove('active');
+            });
+          }
+          // Fechar popovers ao clicar fora
+          document.addEventListener('click', function(event) {
+            if (caixaOque && !caixaOque.contains(event.target) && btnOque && !btnOque.contains(event.target)) {
+              caixaOque.classList.remove('active');
+            }
+            if (caixaDicas && !caixaDicas.contains(event.target) && btnDicas && !btnDicas.contains(event.target)) {
+              caixaDicas.classList.remove('active');
+            }
+            if (caixaAjuda && !caixaAjuda.contains(event.target) && btnAjuda && !btnAjuda.contains(event.target)) {
+              caixaAjuda.classList.remove('active');
+            }
+          });
+        });
+      </script>
+      <div style=" margin: 4rem auto 0 auto; padding: 0 1rem;">
+        <h2 class="artigo-mini-titulo" style="margin-top: 2.5rem;">Aqui vai alguns dos principais tipos de transtorno de ansiedade:</h2>
+        <p>Os tipos mais comuns e suas características são:</p>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+          <li><strong>transtorno de ansiedade generalizada:</strong> preocupação excessiva e análise minuciosa de cada ponto ou situação;</li>
+          <li><strong>transtorno obsessivo-compulsivo (TOC):</strong> pensamentos obsessivos e medos irracionais que levam a atitudes compulsivas;</li>
+          <li><strong>fobia social (ou transtorno de ansiedade social):</strong> preocupação e medo com situações sociais comuns;</li>
+          <li><strong>síndrome do pânico:</strong> crises intensas de medo e mal-estar generalizado</li>
+          <li><strong>agorafobia:</strong> medo de situações e lugares que possam causar impotência, constrangimento ou aprisionamento.</li>
+        </ul>
+        <p>Casos em que <strong>vários transtornos estão presentes ao mesmo tempo podem ocorrer,</strong> sendo assim, se tornando quase impossível identificar o que é primário e o que não é, em casos como esse referimos que esse paciente apresenta mais de um diagnóstico coexistente <strong>comorbidade</strong>. Outro ponto importante é notar que cerca de <strong>50% das crianças com transtornos de ansiedade tenham também outro transtorno ansioso,</strong> transtornos de ansiedade são bastante comuns e afetam tanto crianças quanto adultos. Aproximadamente <strong>9% das crianças e 15% dos adultos podem enfrentar esses desafios ao longo da vida.</strong></p>
+        <p id="sintomas-ans" style="margin-top: 2.2rem; color: #205080; font-size: 1.1rem;">Informações retiradas de artigos reconhecidos. <a href="https://www.scielo.br/j/rbp/a/dz9nS7gtB9pZFY6rkh48CLt/?lang=pt&format-html" target="_blank" rel="noopener" style="color: #2563EB; text-decoration: underline;">Fonte SciELO</a></p>
+      </div>
+      <div style="max-width: 600px; margin: 3rem auto 0 auto; padding: 0 1rem;">
+        <h2 class="artigo-mini-titulo" style="margin-top: 2.5rem;">Seguindo para os principais sintomas:</h2>
+        <ul style="margin-left: 2.5rem; margin-bottom: 1.2rem;">
+          <li><strong>físicos:</strong>
+            <ul style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-left: 1.5rem;">
+              <li>Tremor;</li>
+              <li>Náuseas ou vômitos;</li>
+              <li>Dor de estômago ou diarreia;</li>
+              <li>Falta de ar ou respiração ofegante;</li>
+              <li>Suor, calafrios ou ondas de calor;</li>
+              <li>Formigamento ou dormência nos braços ou pernas;</li>
+              <li>Boca seca;</li>
+              <li>Irritabilidade e dificuldade para dormir;</li>
+              <li>Tontura, vertigem ou sensação de desmaio;</li>
+              <li>Inquietação, irritabilidade ou agitação;</li>
+              <li>Dificuldade para falar.</li>
+            </ul>
+          </li>
+          <li><strong>psíquicos:</strong>
+            <ul style="margin-top: 0.5rem; margin-bottom: 0.5rem; margin-left: 1.5rem;">
+              <li>Medo de perder o controle ou de ferimentos físicos ou morte;</li>
+              <li>Dificuldade ou falta de concentração;</li>
+              <li>Sensação de que algo ruim vai acontecer;</li>
+              <li>Descontrole sobre os próprios pensamentos;</li>
+              <li>Pensamentos ou memórias assustadoras;</li>
+              <li>Memória fraca;</li>
+              <li>Nervosismo;</li>
+              <li>Medo ser avaliado negativamente por outras pessoas;</li>
+              <li>Desconexão com a realidade;</li>
+              <li>Distração ou confusão mental;</li>
+              <li>Preocupação excessiva.</li>
+            </ul>
+          </li>
+        </ul>
+        <p id="tratamento-ans" style="font-weight: bold; color: #205080;">É importante dizer que as pessoas normalmente sentem ambos os sintomas simultaneamente, tanto psicológico quanto físico.</p>
+      </div>
+      <div style=" margin: 3rem auto 0 auto; padding: 0 1rem;">
+        <h2 class="artigo-mini-titulo" style="margin-top: 2.5rem;">Tratamento</h2>
+        <p>O tratamento de doenças desse tipo, conforme a evolução da saúde e medicina no geral vem se tornando cada vez mais cuidadosas e sensíveis em relação ao paciente. Acompanhamentos e cuidados é o mínimo que os especialistas vão demonstrar a você, até aqui no artigo, pode ser que você ainda esteja em dúvida se a sua ansiedade faz parte das reações normais do dia a dia ou se já evoluiu para um transtorno de ansiedade. <strong>Está tudo bem sentir essa incerteza.</strong></p>
+        <p style="margin-top: 2rem;"><strong>O mais importante é saber que você não precisa enfrentar isso sozinho</strong> — se os sintomas estiverem persistentes ou afetando sua rotina, <strong>não hesite em procurar um especialista para obter um diagnóstico real.</strong></p>
+        <p style="margin-top: 1.5rem;">Enquanto isso, se quiser dar o próximo passo no seu cuidado emocional, você pode visitar a nossa aba <a href="dicasTecnicas.html" style="color: #2563EB; text-decoration: underline; font-weight: 500;">Dicas & Técnicas</a>, onde oferecemos <strong>exercícios simples e rápidos</strong> para te ajudar a retomar o controle das emoções e se sentir melhor.</p>
+        <p style="margin-top: 2rem;">Falando agora sobre o tratamento profissional, ele é feito com <a href="https://pt.wikipedia.org/wiki/Psicoterapia" target="_blank" rel="noopener" style="color: #2563EB; text-decoration: underline; font-weight: 500;">psicoterapia</a> e <a href="https://pt.wikipedia.org/wiki/Medicamento" target="_blank" rel="noopener" style="color: #2563EB; text-decoration: underline; font-weight: 500;">medicamentos</a>, dentre os quais <a href="https://pt.wikipedia.org/wiki/Ansiol%C3%ADtico" target="_blank" rel="noopener" style="color: #2563EB; text-decoration: underline; font-weight: 500;">ansiolíticos</a> e <a href="https://pt.wikipedia.org/wiki/Antidepressivo" target="_blank" rel="noopener" style="color: #2563EB; text-decoration: underline; font-weight: 500;">antidepressivos</a>. O diagnóstico deve ser abrangente para se elaborar um plano de tratamento com objetivos bem definidos. A saúde geral da pessoa não é ignorada, <strong>especialistas e profissionais, sempre alertam a importância de uma boa alimentação, exercícios físicos, hábitos de higiene, consultas e exames regulares, boas noites de sono, vida social ativa e práticas de autocuidado e bem-estar.</strong></p>
+        <div class="cards-tratamento">
+          <div class="card-tratamento">
+            <h3>Terapias Cognitivo-Comportamentais</h3>
+            <p>A Terapia Cognitivo-Comportamental (TCC) é uma das abordagens mais recomendadas para tratar ansiedade leve. Seu foco está na identificação e <strong>modificação de pensamentos distorcidos e padrões comportamentais disfuncionais.</strong></p>
+          </div>
+          <div class="card-tratamento largo">
+            <h3>Psicoterapia e Psicanálise</h3>
+            <p>Outras abordagens psicoterapêuticas também são eficazes no tratamento da ansiedade leve:</p>
+            <ul>
+              <li><strong>Psicoterapia psicodinâmica:</strong> explora as origens emocionais da ansiedade, muitas vezes ligadas a experiências passadas.</li>
+              <li><strong>Psicoterapia humanista:</strong> foca na escuta ativa e no fortalecimento do autoconhecimento e da autonomia.</li>
+              <li><strong>Psicanálise:</strong> investiga processos inconscientes, sonhos e traumas que contribuem para os sintomas ansiosos.</li>
+            </ul>
+          </div>
+          <div class="card-tratamento largo">
+            <h3>Terapias Complementares</h3>
+            <p>Algumas práticas complementares também auxiliam no controle da ansiedade leve:</p>
+            <ul>
+              <li><strong>Yoga:</strong> combina movimentos físicos, técnicas de respiração e meditação.</li>
+              <li><strong>Acupuntura:</strong> atua sobre pontos energéticos do corpo, promovendo alívio de tensões.</li>
+              <li><strong>Aromaterapia:</strong> utiliza óleos essenciais calmantes para induzir o relaxamento.</li>
+              <li><strong>Musicoterapia:</strong> utiliza sons, ritmos e melodias com objetivos terapêuticos.</li>
+            </ul>
+          </div>
+          <div class="card-tratamento">
+            <h3>Atividade Física</h3>
+            <p>A prática regular de exercícios físicos tem impacto direto na saúde mental. Atividades como <strong>caminhada, corrida, natação ou dança estimulam a liberação de neurotransmissores relacionados ao bem-estar</strong>, como serotonina, dopamina e endorfina. Esses efeitos contribuem para o <strong>relaxamento, melhoria da autoestima e regulação do humor.</strong></p>
+          </div>
+        </div>
+        <div style="margin: 3rem auto 0 auto; padding: 0 1rem;">
+          <p>Quando o caso da pessoa se agrava desenvolvendo até mesmo <strong>pânico,</strong> os especialistas introduzem <strong>medicamentos antidepressivos,</strong> eles demonstram resultados bem positivos quando <strong>juntos dos atendimentos de psicoterapia e psicanálise.</strong></p>
+          <p style="margin-top: 2rem;">Psicoterapia, é um processo terapêutico <strong>recomendado fazer independentemente do nível da sua ansiedade, as vezes recomendado mesmo sem nem ter transtornos de ansiedade,</strong> pois serve para ajudar o indivíduo a <strong>compreender, lidar e modificar pensamentos, emoções e comportamentos que causam sofrimento ou dificultam a vida cotidiana.</strong> Ela pode ser realizada individualmente, em grupo, com casais ou famílias, e envolve conversas estruturadas em sessões regulares. Durante essas sessões, o paciente reflete sobre suas experiências, padrões de pensamento, sentimentos e ações, com o apoio e orientação do terapeuta.</p>
+          <p style="margin-top: 2rem;">Caso tenha interesse participe da <a href="comunidade.html" style="color: #2563EB; text-decoration: underline; font-weight: 500;">comunidade Helpstress</a>, por lá, é possível compartilhar histórias, trocar experiências e conhecer pessoas que estão passando ou já passaram por momentos parecidos com os seus. <strong>Você não está sozinho nessa jornada.</strong></p>
+          <h2 class="artigo-mini-titulo" style="margin-top: 2.5rem;">Conclusão</h2>
+          <p>Em uma sociedade antiga e não tão evoluída, muitos acreditavam que os <strong>medos</strong> e <strong>preocupações</strong> que as pessoas enfrentavam eram apenas <strong>fases passageiras e inofensivas.</strong> No entanto, hoje sabemos que esses sentimentos podem ser sinais de transtornos de ansiedade reais e significativos. Esses transtornos podem causar um <strong>sofrimento profundo e impactar o desenvolvimento emocional e social de crianças e adolescentes.</strong> Identificar esses problemas precocemente é fundamental para evitar consequências sérias, como o isolamento social, o baixo desempenho escolar, e até mesmo o surgimento de distúrbios mais graves na vida adulta. Observar com sensibilidade os sinais de ansiedade, tanto em si mesmo quanto nas pessoas ao nosso redor. Lembre-se de que <strong>você não precisa enfrentar isso sozinho(a).</strong> No HelpStress, criamos um espaço acolhedor e informativo para que você possa entender melhor o que está sentindo, encontrar apoio e dar os primeiros passos em direção ao autocuidado e ao bem-estar emocional.</p>
+          <p style="margin-top: 2.2rem;">Se você percebe que a ansiedade está interferindo na sua rotina, nos seus estudos, nos seus relacionamentos ou na sua saúde, saiba que <strong>buscar ajuda é um ato de coragem, e não de fraqueza.</strong></p>
+          <p style="color: #2563EB; font-size: 1.18rem; font-weight: 600; margin-top: 1.2rem; display: flex; align-items: center; gap: 0.6rem;">💙 Você não está sozinho. Você está no HelpStress.</p>
+        </div>
+      </div>
+      <div style="max-width: 600px; margin: 3rem auto 2rem auto; padding: 0 1rem;">
+        <p style="color: #205080; font-size: 1.08rem; margin-bottom: 1.2rem;">
+          As informações deste artigo foram baseadas em fontes confiáveis e artigos científicos. Caso tenha interesse em se aprofundar e entender mais sobre ansiedade, recomendamos a leitura dos materiais abaixo:
+        </p>
+        <ul style="color: #444; font-size: 1.01rem; margin-left: 1.2rem;">
+          <li>
+            WIKIPÉDIA. Ansiedade. Disponível em: <a href="https://pt.wikipedia.org/wiki/Ansiedade" target="_blank" style="color: #2563EB;">https://pt.wikipedia.org/wiki/Ansiedade</a>. Acesso em: 27 jun. 2025.
+          </li>
+          <li>
+            ANDRADE, Leonardo H. S. G. et al. Transtornos de ansiedade na infância e adolescência: considerações clínicas e epidemiológicas. Revista Brasileira de Psiquiatria, São Paulo, v. 24, n. 3, p. 52–57, 2002. Disponível em: <a href="https://www.scielo.br/j/rbp/a/dz9nS7gtB9pZFY6rkh48CLt/?lang=pt&format-html" target="_blank" style="color: #2563EB;">https://www.scielo.br/j/rbp/a/dz9nS7gtB9pZFY6rkh48CLt/?lang=pt&format-html</a>. Acesso em: 27 jun. 2025.
+          </li>
+          <li>
+            MOHAMMADKHANI, Shahrzad et al. The effect of mindfulness-based interventions on anxiety in adults: a systematic review and meta-analysis. Journal of Psychiatric Research, [s.l.], v. 147, p. 160–171, 2022. Disponível em: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9158251/" target="_blank" style="color: #2563EB;">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9158251/</a>. Acesso em: 27 jun. 2025.
+          </li>
+          <li>
+            HOSPITAL ISRAELITA ALBERT EINSTEIN. Ansiedade: causas, sintomas e como tratar. Vida Saudável. Disponível em: <a href="https://vidasaudavel.einstein.br/ansiedade/" target="_blank" style="color: #2563EB;">https://vidasaudavel.einstein.br/ansiedade/</a>. Acesso em: 27 jun. 2025.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-conteudo">
+      <div class="footer-section">
+        <h3 class="pensando">Pensando Em Você</h3>
+        <p>Todas as informações do nosso site são formuladas a partir de bons profissionais adequados a todos os níveis de ansiedade.</p>
+      </div>
+      <div class="footer-section">
+        <h3 class="redes">Confira nossas redes sociais</h3>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy;2025 Help Stress. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <script>
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+          const icon = mobileMenuBtn.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+          const icon = mobileMenuBtn.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

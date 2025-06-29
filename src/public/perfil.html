@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/assets/css/cadastro.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/tags.css"> 
+    <link rel="stylesheet" href="/assets/css/comunidade.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,22 +75,22 @@
         </section>
     </main>
 
-    <footer class="perfil-footer">
-        <div class="footer-conteudo perfil-footer-content">
-            <div class="footer-section perfil-footer-section">
+    <footer>
+        <div class="footer-conteudo">
+            <div class="footer-section">
                 <h3 class="pensando">Pensando Em Você</h3>
                 <p>Todas as informações do nosso site são formuladas a partir de bons profissionais adequados a todos os níveis de ansiedade.</p>
             </div>
-            <div class="footer-section perfil-footer-section">
+            <div class="footer-section">
                 <h3 class="redes">Confira nossas redes sociais</h3>
-                <div class="social-links perfil-footer-social-links">
+                <div class="social-links">
                     <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
                     <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
                     <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom perfil-footer-bottom">
+        <div class="footer-bottom">
             <p>&copy;2025 Help Stress. Todos os direitos reservados.</p>
         </div>
     </footer>
@@ -102,9 +103,16 @@
                 navLinks.classList.toggle('active');
             });
         }
+
+        const shareBtn = document.querySelector('.share-post-button');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', function() {
+                window.location.href = '.comunidade.html#postahgem';
+            });
+        }
     </script>
-    <script src="/assets/js/perfil.js"></script>
-    <script src="/assets/js/profileTags.js"></script>
+    <script type="module" src="/assets/js/perfil.js"></script>
+    <script type="module" src="/assets/js/profileTags.js"></script>
 
     <!-- Modal de Adicionar Tag -->
     <div id="addTagModal" class="modal-overlay hidden">

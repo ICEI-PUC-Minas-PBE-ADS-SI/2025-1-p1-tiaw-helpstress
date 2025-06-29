@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <script>
+      const userData = localStorage.getItem('userData');
+      if (userData) {
+        window.location.href = 'comunidade.html';
+      }
+    </script>
+
     <header>
         <nav>
             <div class="logo">
@@ -24,7 +31,7 @@
             </button>
             <div class="nav-links">
                 <a href="index.html">Início</a>
-                <a href="sobre.html">Sobre ansiedade</a>
+                <a href="ansiedadeBlog.html">Sobre ansiedade</a>
                 <a href="comunidade.html" class="active">Comunidade</a>
                 <button class="login-btn">Fazer Login</button>
             </div>
@@ -109,8 +116,9 @@
         </div>
     </footer>
 
-    <script src="assets/js/scriptComunidade.js"></script>
-    <script src="assets/js/auth.js"></script>
+    <script type="module" src="assets/js/scriptComunidade.js"></script>
+    <script type="module" src="assets/js/auth.js"></script>
+    <script src="/assets/js/cloudinary-config.js"></script>
     <script>
 
     document.addEventListener('DOMContentLoaded', function() {

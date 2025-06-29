@@ -6,8 +6,12 @@
   <title>HelpStress</title>
   <link rel="stylesheet" href="assets/css/dicasTecnicas.CSS" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -16,16 +20,58 @@
       <div class="logo">
         <img src="assets/img/logo.png" alt="Help Stress" />
       </div>
-      
+      <button class="mobile-menu-btn" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
       <div class="nav-links">
         <a href="index.html" class="active">Início</a>
-        <a href="sobre.html">Sobre ansiedade</a>
+        <a href="ansiedadeBlog.html">Sobre ansiedade</a>
         <a href="comunidade.html">Comunidade</a>
       </div>
     </nav>
   </header>
 
-  <main>
+  <section class="hero-section">
+    <div class="hero-blur-img">
+      <img src="assets/img/blur1.png" alt="Blur decorativo" />
+    </div>
+    
+    <div class="hero-content">
+      <div class="hero-grid">
+        <div class="pill pill-1">Encontre aqui o alívio que você precisa.</div>
+        <div class="pill pill-2">Técnicas simples para momentos difíceis.</div>
+        <div class="pill pill-3">Encontre o que funciona para você.</div>
+        
+        <p class="pill-text">
+          As dicas e técnicas apresentadas aqui <span>não substituem um diagnóstico profissional.</span> Se os sintomas forem persistentes ou intensos, é fundamental buscar a orientação de um <span>especialista em saúde mental.</span>
+        </p>
+
+        <div class="hero-card card-blog">
+          <img src="/assets/img/blog.png" alt="Comunidade Help Stress">
+          <div>
+            <strong>Blog</strong>
+            <p>Leia agora nosso artigo sobre ansiedade e avalie seu nível com um teste.</p>
+            <a href="ansiedadeBlog.html">Ver agora <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="hero-card card-go">
+          <a href="#" id="scroll-to-info-cards">
+            <span>Explorar</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <p class="hero-description">
+        Explore ferramentas e técnicas desenvolvidas e testadas para te ajudar a encontrar o bem-estar e a paz interior no seu dia a dia.
+      </p>
+    </div>
+  </section>
+
+  <div class="hero-blur-img hero-blur-img2">
+    <img src="assets/img/blur2.png" alt="Blur decorativo esquerdo" />
+  </div>
+
+  <main id="main">
     <h1>Dicas & Técnicas</h1>
 
     <div class="cards-container" id="cards-container">
@@ -56,24 +102,29 @@
     </div>
 
     <section class="bottom-section">
-      <img src="assets/img/meditacao.jpg" alt="Pessoa meditando" />
+      <dotlottie-player class="lottie-parallax" src="https://lottie.host/4c6dac7e-bf52-4b92-ac70-fd726d8d3a57/T295lJckNw.lottie" background="transparent" speed="1" style="width: 100%; height: 100%; min-height: 400px;" loop autoplay></dotlottie-player>
       <div class="info-cards-container">
-        <div class="info-card">
-          <h4>🛌 Sono</h4>
+        <a class="info-card info-card-parallax" href="dormirbem.html">
+          <h4><img src="assets/img/baby-sleep.gif" style="width:42px;height:42px;vertical-align:middle;margin-right:8px; border-radius: 50%;" alt="sonoimg" /> Sono</h4>
           <p>Dicas para melhorar a qualidade do sono e reduzir preocupações.</p>
-        </div>
-        <div class="info-card">
-          <h4>🏃‍♂️ Exercícios</h4>
+        </a>
+        <a class="info-card info-card-parallax" href="exercicios.html">
+          <h4>
+            <img src="assets/img/running.gif" style="width:42px;height:42px;vertical-align:middle;margin-right:8px; border-radius: 50%;" alt="runimg" />
+            Exercícios
+          </h4>
           <p>Atividades físicas que ajudam no controle da ansiedade.</p>
-        </div>
-        <div class="info-card">
-          <h4>🧘 Meditação</h4>
+        </a>
+        <a class="info-card info-card-parallax" href="meditacao.html">
+          <h4><img src="assets/img/meditation.gif" style="width:42px;height:42px;vertical-align:middle;margin-right:8px; border-radius: 50%;" alt="medidationimg" />
+             Meditação</h4>
           <p>Práticas meditativas para reduzir o estresse e ansiedade.</p>
-        </div>
-        <div class="info-card">
-          <h4>🌬️ Respiração</h4>
+        </a>
+        <a class="info-card info-card-parallax" href="respiracao.html">
+          <h4><img src="assets/img/difficulty-breathing.gif" style="width:42px;height:42px;vertical-align:middle;margin-right:8px; border-radius: 50%;" alt="respiraimg" />
+             Respiração</h4>
           <p>Técnicas de respiração para acalmar a mente e relaxar o corpo.</p>
-        </div>
+        </a>
       </div>
     </section>
   </main>
@@ -99,5 +150,41 @@
   </footer>
 
   <script src="assets/js/scriptTecnicas.js"></script>
+  <script>
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+          const icon = mobileMenuBtn.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+          const icon = mobileMenuBtn.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    }
+  </script>
 </body>
 </html>

@@ -26,32 +26,18 @@
             <div class="logo">
                 <img src="/assets/img/LOGO.png" alt="Help Stress" width="120px">
             </div>
-            <button class="menu-hamburguer">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             <ul class="nav-links">
-                <li class="mobile-menu-logo"><img src="/assets/img/LOGO.png" alt="Help Stress" width="100px"></li>
                 <li><a href="#oferecemos">Início</a></li>
                 <li><a href="#entendendo-ansiedade">Sobre ansiedade</a></li>
                 <li><a href="#dicas-tecnicas">Dicas & Técnicas</a></li>
                 <li><a href="#comunidade">Comunidade</a></li>
-                <li class="mobile-user-icon">
-                    <div id="user-not-logged-in-mobile">
-                        <button class="btn-criar-conta"><img src="/assets/img/user.png" alt="Usuário" height="20"> Fazer Login</button>
-                    </div>
-                    <div id="user-logged-in-mobile" class="hidden">
-                        <button class="btn-criar-conta logged-in"><img src="/assets/img/user.png" alt="Usuário" height="58" width="58" id="mobile-user-profile-img"></button>
-                    </div>
-                </li>
             </ul>
             <div class="icone-usuario">
                 <div id="user-not-logged-in-desktop">
-                    <button class="btn-criar-conta"><img src="/assets/img/user.png" alt="Usuário" height="20"> Fazer Login</button>
+                    <button class="btn-criar-conta" onclick="window.location.href='login.html'"><img src="/assets/img/user.png" alt="Usuário" height="20"> Fazer Login</button>
                 </div>
                 <div id="user-logged-in-desktop" class="hidden">
-                    <button class="btn-criar-conta logged-in"><img src="/assets/img/user.png" alt="Usuário" height="58" width="58" id="desktop-user-profile-img"></button>
+                    <button class="btn-criar-conta logged-in" onclick="window.location.href='perfil.html'"><img src="/assets/img/user.png" alt="Usuário" height="58" width="58" id="desktop-user-profile-img"></button>
                 </div>
             </div>
         </nav>
@@ -62,9 +48,11 @@
             <h1>Não Deixe a Ansiedade<br>Ser Sua Tormenta.</h1>
             <p class="subtitle">Aqui você encontrará a experiência completa para te ajudar e cuidar de você durante
                 crises</p>
-            <div class="search-bar">
+            <div class="search-bar" style="position: relative; z-index: 1001;">
                 <input type="text" placeholder="Pesquisa">
                 <button><img src="/assets/img/pesquisa.png" alt="Pesquisar" height="10"></button>
+                <div id="search-suggestions" style="display:none; position:absolute; left:0; right:0; top:100%; background:#fff; border-radius:0 0 1rem 1rem; box-shadow:0 4px 16px rgba(37,99,235,0.10); z-index:1002; padding:0.5rem 0; margin-top:0.2rem;">
+                </div>
             </div>
         </div>
     </main>
@@ -87,7 +75,7 @@
                     </div>
                     <h3>O que é Ansiedade?</h3>
                     <p>A ansiedade é uma resposta natural do corpo ao estresse, mas quando excessiva pode afetar nossa qualidade de vida.</p>
-                    <a href="#">Saiba mais →</a>
+                    <a href="ansiedadeBlog.html">Saiba mais →</a>
                 </div>
                 <div class="card">
                     <div class="card-icon-wrapper">
@@ -95,7 +83,7 @@
                     </div>
                     <h3>Sintomas Comuns</h3>
                     <p>Conheça os sinais físicos e emocionais da ansiedade e aprenda a identificá-los no seu dia a dia.</p>
-                    <a href="#">Saiba mais →</a>
+                    <a href="ansiedadeBlog.html#sintomas-ans">Saiba mais →</a>
                 </div>
                 <div class="card">
                      <div class="card-icon-wrapper">
@@ -103,17 +91,22 @@
                     </div>
                     <h3>Formas de Tratamento</h3>
                     <p>Existem diversos métodos eficazes para tratar a ansiedade, desde terapia até mudanças no estilo de vida.</p>
-                    <a href="#">Saiba mais →</a>
+                    <a href="ansiedadeBlog.html#tratamento-ans">Saiba mais →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="dicas-tecnicas-section" id="dicas-tecnicas">
-        <div class="dicas-tecnicas-content">
-            <img src="/assets/img/gradiente.png" alt="Gradiente decorativo">
-            <h2><span>Dicas</span> <span class="&class">&</span> <span>Técnicas</span></h2>
-            <div class="dicas-card">
+    <section class="dicas-tecnicas-section" id="dicas-tecnicas" style="position:relative; min-height: 520px; overflow: hidden;">
+        <div style="position: absolute; pointer-events: none; inset: 0; width: 96%; height: 100%; z-index: 0; border-radius: 32px; overflow: hidden; left: 2%; right: 2%;">
+            <iframe src='https://my.spline.design/glasscirclescopy-dX64N16zcENx2HTjw1WZhIqK/' frameborder='0' width='120%' height='120%' style='display:block; width:100%; height:100%; min-height:520px; border-radius:32px;'></iframe>
+        </div>
+        <div class="dicas-tecnicas-content" style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-end; gap: 48px; height: 100%; min-height: 480px;">
+            <div class="dicas-tecnicas-title-gradient">
+              <span class="gradient-bg"></span>
+              <h2>Dicas<br>&<br>Técnicas</h2>
+            </div>
+            <div class="dicas-card" style="position: relative; z-index: 2; flex: 1 1 420px; max-width: 540px; margin-left: auto; align-self: center;">
                 <h3>Descubra os melhores exercicios</h3>
                 <p class="subtitle">"As informações que fornecemos não devem ser interpretadas como um diagnóstico definitivo. Aconselhamos sempre a busca por orientação médica profissional e o tratamento apropriado."</p>
                 <ul>
@@ -125,12 +118,8 @@
                     <li><img src="/assets/img/V.svg" alt="Checkmark"> Relatos e experiências de outras pessoas</li>
                 </ul>
                 <button class="dicas-btn" onclick="window.location.href='dicasTecnicas.html'">Dicas & Tecnicas</button>
-                <div class="spline-background">
-                    <iframe src='https://my.spline.design/abstract3diconset-9toPczSO0oLKIyACRbVIMf3x/' frameborder='0' width='100%' height='100%'></iframe>
-                </div>
             </div>
         </div>
-
     </section>
 
     <section class="comunidade" id="comunidade">
@@ -156,7 +145,6 @@
     <section class="carousel-section">
       <div class="carousel-container">
         <div class="testimonial-card" id="card-display">
-          <!-- Card será carregado aqui pelo js -->
         </div>
       </div>
     </section>
@@ -171,9 +159,9 @@
             <div class="footer-section">
                 <h3 class="redes">Confira nossas redes sociais</h3>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#" onclick="alert('Em breve disponibilizaremos as redes sociais da nossa equipe! Fique ligado para novidades e atualizações.'); return false;"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="#" onclick="alert('Em breve disponibilizaremos as redes sociais da nossa equipe! Fique ligado para novidades e atualizações.'); return false;"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#" onclick="alert('Em breve disponibilizaremos as redes sociais da nossa equipe! Fique ligado para novidades e atualizações.'); return false;"><i class="fab fa-instagram"></i> Instagram</a>
                 </div>
             </div>
         </div>
@@ -192,7 +180,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/auth.js"></script>
+    <script type="module" src="assets/js/auth.js"></script>
     <script>
         function redirecionarComunidade(event) {
             event.preventDefault();
@@ -203,6 +191,141 @@
                 window.location.href = 'comunidadeOFF.html';
             }
         }
+    </script>
+    <script>
+
+      const sugestoesComunidade = [
+        'Ansiedade (Blog)',
+        'Dicas & Técnicas',
+        'Exercícios para ansiedade',
+        'Posts',
+        'Comunidade',
+        'Mindfulness e meditação',
+        'Durmazen',
+        'Aqui e Agora',
+        'Desacelera'
+      ];
+      document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.querySelector('.search-bar input');
+        const searchBtn = document.querySelector('.search-bar button');
+        const suggestionsBox = document.getElementById('search-suggestions');
+        function pesquisarComunidade() {
+          const termo = searchInput.value.trim();
+          if (termo.length > 0) {
+            window.location.href = `comunidade.html?search=${encodeURIComponent(termo)}`;
+          }
+        }
+        if (searchBtn) {
+          searchBtn.addEventListener('click', pesquisarComunidade);
+        }
+        if (searchInput) {
+          searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+              pesquisarComunidade();
+              suggestionsBox.style.display = 'none';
+            }
+          });
+          searchInput.addEventListener('input', function() {
+            const termo = searchInput.value.trim().toLowerCase();
+            if (termo.length === 0) {
+              suggestionsBox.style.display = 'none';
+              suggestionsBox.innerHTML = '';
+              return;
+            }
+            const filtradas = sugestoesComunidade.filter(s => s.toLowerCase().includes(termo));
+            if (filtradas.length === 0) {
+              suggestionsBox.style.display = 'none';
+              suggestionsBox.innerHTML = '';
+              return;
+            }
+            suggestionsBox.innerHTML = filtradas.map(s => `<div class='suggestion-item' style='padding:0.9rem 1.5rem; cursor:pointer; color:#2563eb; font-size:1.08rem; border-radius:0.7rem; margin:0.12rem 0; transition:background 0.18s, color 0.18s; font-family:Poppins,Inter,sans-serif; font-weight:500; letter-spacing:0.01em;'>${s}</div>`).join('');
+            suggestionsBox.style.display = 'block';
+            suggestionsBox.style.background = 'rgba(255,255,255,0.98)';
+            suggestionsBox.style.boxShadow = '0 8px 32px rgba(37,99,235,0.13)';
+            suggestionsBox.style.border = '1.5px solid #e3eaff';
+            suggestionsBox.style.backdropFilter = 'blur(2px)';
+            suggestionsBox.style.padding = '0.7rem 0.2rem';
+            suggestionsBox.style.marginTop = '0.3rem';
+            suggestionsBox.style.borderRadius = '1.1rem';
+            Array.from(suggestionsBox.children).forEach((el, idx) => {
+              el.addEventListener('mouseenter', function() {
+                el.style.background = '#eaf2ff';
+                el.style.color = '#1746a0';
+              });
+              el.addEventListener('mouseleave', function() {
+                el.style.background = 'transparent';
+                el.style.color = '#2563eb';
+              });
+              el.addEventListener('mousedown', function(e) {
+                e.preventDefault();
+                const valorSelecionado = filtradas[idx];
+                searchInput.value = valorSelecionado;
+                suggestionsBox.style.display = 'none';
+                searchInput.focus();
+
+                const termoBusca = valorSelecionado.toLowerCase();
+                let destino = null;
+                for (const item of mapaBusca) {
+                  if (item.termos.some(t => termoBusca.includes(t))) {
+                    destino = item.destino;
+                    break;
+                  }
+                }
+                if (destino) {
+                  window.location.href = destino;
+                }
+              });
+            });
+          });
+
+          document.addEventListener('mousedown', function(e) {
+            if (!suggestionsBox.contains(e.target) && e.target !== searchInput) {
+              suggestionsBox.style.display = 'none';
+            }
+          });
+        }
+      });
+    </script>
+    <script>
+
+      const mapaBusca = [
+        { termos: ['exercícios', 'exercicios para ansiedade', 'exercício', 'exercicio'], destino: 'dicasTecnicas.html#main' },
+        { termos: ['aqui e agora', 'ancora', 'presente'], destino: 'detalhes.html?card=aquieagora' },
+        { termos: ['desacelera', 'desacelerar', 'respiração guiada'], destino: 'detalhes.html?card=desacelera' },
+        { termos: ['ansiedade', 'ansiedade no trabalho', 'crises', 'sintomas'], destino: 'ansiedadeBlog.html' },
+        { termos: ['dicas', 'técnicas'], destino: 'dicasTecnicas.html' },
+        { termos: ['posts', 'experiências', 'experiencias', 'terapia'], destino: 'comunidade.html#posts' },
+        { termos: ['comunidade', 'ajuda', 'apoio'], destino: 'comunidade.html' },
+        { termos: ['mindfulness', 'meditação', 'meditacao', 'relaxamento'], destino: 'meditacao.html' },
+        { termos: ['durmazen', 'sono', 'dormir melhor'], destino: 'detalhes.html?card=durmazen' },
+        { termos: ['início', 'home'], destino: 'index.html' },
+        { termos: ['sobre'], destino: 'index.html#entendendo-ansiedade' }
+      ];
+      document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.querySelector('.search-bar input');
+        const searchBtn = document.querySelector('.search-bar button');
+        function pesquisarMapa() {
+          const termo = searchInput.value.trim().toLowerCase();
+          if (termo.length === 0) return;
+          for (const item of mapaBusca) {
+            if (item.termos.some(t => termo.includes(t))) {
+              window.location.href = item.destino;
+              return;
+            }
+          }
+          alert('Nenhum artigo ou seção encontrada para sua pesquisa.');
+        }
+        if (searchBtn) {
+          searchBtn.addEventListener('click', pesquisarMapa);
+        }
+        if (searchInput) {
+          searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+              pesquisarMapa();
+            }
+          });
+        }
+      });
     </script>
 </body>
 

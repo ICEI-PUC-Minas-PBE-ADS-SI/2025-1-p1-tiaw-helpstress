@@ -1,3 +1,5 @@
+import { baseUrl } from './auth.js';
+
 console.log('Script de cadastro carregado!');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -70,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         try {
-            const resposta = await fetch('/register', {
+            const resposta = await fetch(`${baseUrl}/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -88,9 +90,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(dados.mensagem || 'Erro ao realizar cadastro');
             }
 
-            showMessage('Cadastro realizado com sucesso!', 'success');
+            showMessage('Cadastro realizado com sucesso! Redirecionando para o login...', 'success');
             formCadastro.reset();
             clearInputErrors();
+
+            // Salva o token JUNTO com os dados do usuário
+            localStorage.setItem('authToken', dados.token);
+            localStorage.setItem('userData', JSON.stringify({
+                ...dados.usuario,
+                token: dados.token
+            }));
+
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1200);
             
         } catch (erro) {
             console.error('Erro ao cadastrar:', erro);

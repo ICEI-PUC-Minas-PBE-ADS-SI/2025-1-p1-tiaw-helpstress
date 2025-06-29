@@ -1,3 +1,5 @@
+export const baseUrl = "https://helpstress-backend.onrender.com";
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('auth.js carregado!');
     const userNotLoggedInDesktopDiv = document.getElementById('user-not-logged-in-desktop');
@@ -36,10 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (mobileUserProfileImg) mobileUserProfileImg.src = profilePicSrc;
 
                 if (desktopLoggedInButton) {
-                    desktopLoggedInButton.onclick = () => window.location.href = 'perfil.html';
+                    desktopLoggedInButton.onclick = () => window.location.href = '/perfil.html';
                 }
                 if (mobileLoggedInButton) {
-                    mobileLoggedInButton.onclick = () => window.location.href = 'perfil.html';
+                    mobileLoggedInButton.onclick = () => window.location.href = '/perfil.html';
                 }
 
             } catch (e) {
@@ -55,10 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (userLoggedInMobileDiv) userLoggedInMobileDiv.classList.add('hidden');
 
             if (desktopLoggedOutButton) {
-                desktopLoggedOutButton.onclick = () => window.location.href = 'login.html';
+                desktopLoggedOutButton.onclick = () => window.location.href = '/login.html';
             }
             if (mobileLoggedOutButton) {
-                mobileLoggedOutButton.onclick = () => window.location.href = 'login.html';
+                mobileLoggedOutButton.onclick = () => window.location.href = '/login.html';
             }
         }
     }
@@ -67,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Efetuando logout...');
         localStorage.removeItem('authToken');
         localStorage.removeItem('userData');
-        window.location.href = 'index.html'; 
+        window.location.href = '/index.html'; 
     }
 
     window.logoutUser = logoutUser;
@@ -99,23 +101,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 userData && userData !== 'null' && userData !== 'undefined' && userData.trim() !== ''
             );
         }
+
+        const currentPage = window.location.pathname.split('/').pop();
+        if (['login.html', 'cadastro.html'].includes(currentPage)) {
+            console.log('Página de login/cadastro detectada, não redirecionar.');
+            return;
+        }
         
-        if (window.location.pathname.split('/').pop() === 'comunidadeOFF.html') {
+        if (currentPage === 'comunidadeOFF.html') {
             console.log('Estou na página comunidadeOFF.html');
             if (isUsuarioLogado()) {
                 console.log('Usuário está logado, redirecionando para comunidade.html');
-                window.location.href = 'comunidade.html';
+                window.location.href = '/comunidade.html';
                 return;
             } else {
                 console.log('Usuário não está logado, permanecendo em comunidadeOFF.html');
             }
         }
         
-        if (window.location.pathname.split('/').pop() === 'comunidade.html') {
+        if (currentPage === 'comunidade.html') {
             console.log('Estou na página comunidade.html');
             if (!isUsuarioLogado()) {
                 console.log('Usuário não está logado, redirecionando para comunidadeOFF.html');
-                window.location.href = 'comunidadeOFF.html';
+                window.location.href = '/comunidadeOFF.html';
                 return;
             } else {
                 console.log('Usuário está logado, permanecendo em comunidade.html');
@@ -136,10 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (token) {
             console.log('Redirecionando para comunidade.html');
-            window.location.href = 'comunidade.html';
+            window.location.href = '/comunidade.html';
         } else {
             console.log('Redirecionando para comunidadeOFF.html');
-            window.location.href = 'comunidadeOFF.html';
+            window.location.href = '/comunidadeOFF.html';
         }
     }
 
