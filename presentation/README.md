@@ -5,7 +5,7 @@
 
 ## Slides
 
-[text](../../../Helpstress.pdf)
+
 
 
 ## Vídeo
