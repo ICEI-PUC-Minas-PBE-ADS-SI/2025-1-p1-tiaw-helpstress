@@ -1,9 +1,7 @@
 # Código-fonte
 
 
-Esta é a pasta destinada à manutenção do programa que será desenvolvido no contexto desta disciplina.
-
-Se necessário, deve-se descrever neste arquivo os aspectos relevantes da estrutura de diretórios criada para a organização do código.
+HelpStress é uma plataforma completa para ajuda com a ansiedade no dia a dia, de uma forma leve e dinâmica e totalmente personalizada. 
 
 Assim ficou nossa distribuição dentro da pasta src:
 
