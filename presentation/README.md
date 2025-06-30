@@ -7,7 +7,7 @@
 
 Coloque aqui o conjunto de slides.
 
-Link - Canva https://www.canva.com/design/DAGkGLnQwpI/35ig3Y2t6FeKOoYmGr6s4w/edit?utm_content=DAGkGLnQwpI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+[text](../../../Helpstress.pdf)
 
 Img - JPG ![alt text](Helpstress/10.jpg) ![alt text](Helpstress/8.jpg) ![alt text](Helpstress/9.jpg) ![alt text](Helpstress/7.jpg) ![alt text](Helpstress/6.jpg) ![alt text](Helpstress/5.jpg) ![alt text](Helpstress/4.jpg) ![alt text](Helpstress/3.jpg) ![alt text](Helpstress/2.jpg) ![alt text](Helpstress/1.jpg)
 
