@@ -7,9 +7,15 @@
 
 [Helpstress.pdf](https://github.com/user-attachments/files/20971147/Helpstress.pdf)
 
+[Helpstress2.pdf](https://github.com/user-attachments/files/20971706/Helpstress2.pdf)
+
 
 
 ## Vídeo
+
+
+
+
 
 O grupo também deverá gravar um vídeo de até cinco minutos apresentando a solução. O vídeo deve incluir uma demonstração da aplicação hospedada, mostrando seu funcionamento.
 
