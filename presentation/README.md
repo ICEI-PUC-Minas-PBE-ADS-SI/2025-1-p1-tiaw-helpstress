@@ -5,6 +5,7 @@
 
 ## Slides
 
+[Helpstress.pdf](https://github.com/user-attachments/files/20971147/Helpstress.pdf)
 
 
 
