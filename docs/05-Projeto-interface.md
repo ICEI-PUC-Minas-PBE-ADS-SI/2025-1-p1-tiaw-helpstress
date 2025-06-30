@@ -11,17 +11,19 @@
 
 
 
-![alt text](<../Fluxo de dados inicial.jpg>)
+![Fluxo de dados inicial](https://github.com/user-attachments/assets/56bc11d5-f8ae-472e-9274-87e8001d5b8f)
+
 
 
 
 ## Wireframes
 
 [text](05-Projeto-interface.md)
- ![text](../principal.jpg) 
- ![text](../login.jpg) 
- ![text](../comunidade.jpg)
-  ![text](../cadastro.jpg)
+
+![principal](https://github.com/user-attachments/assets/7011f3b2-a5ab-4eec-b8d2-cfd349b4162c)
+![login](https://github.com/user-attachments/assets/0dd3511e-7139-407d-83a5-7c2059786f4e)
+![comunidade](https://github.com/user-attachments/assets/c9cac8dc-1c95-445b-8cc3-c9ff06badbec)
+![cadastro](https://github.com/user-attachments/assets/aefcefd2-9422-4ae4-a8ab-14e047b60cb8)
 
 **✳️✳️✳️ COLOQUE AQUI OS PROTÓTIPOS DE TELAS COM TÍTULO E DESCRIÇÃO ✳️✳️✳️**
 
